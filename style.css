@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.nav{
+   
+    background-color: #555;
+    height: 50px;
+    align-items: center;
+    justify-content: flex-end;
+}
+.nav span{
+        margin-right: 930px;
+        font-size: 1.3em;
+        color: white;
+}
+.nav a{
+    font-size: 1.3em;
+    color: white;
+    text-decoration: none;
+    margin-right: 40px;
+    transition: 0.3s;
+    
+}
+.nav a:hover{
+    color: red;
+}
+/* Add user*/
+.details{
+    margin: 40px 400px;
+    
+  
+}
+.mbtn{
+    margin: 15px;
+    width: 480px;
+    height: 40px;
+    border-color: transparent;
+    border-radius: 10px;
+    background-color:#0d6efd;
+    color:white;
+    transition: 0.3s;
+    
+}
+.mbtn:hover{
+    background-color: #0e5ed4;
+    transform: scaleX(1.01);
+}
+/* Spinner */
+
+@keyframes  spin{
+    to{
+        transform: rotate(360deg);
+    }
+}
+#spinner{
+    position: absolute;
+    display: none;
+    margin: 150px 570px;
+}
+.con{
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.con  h4{
+    color: red;
+}
+.con span{
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    border: 6px solid;
+    border-color: red transparent red transparent;
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+}
+/* Home */
+table {
+    border-collapse: collapse;
+    width: 89%; 
+    overflow: hidden;
+    margin: 40px 0px 40px 80px;
+    
+}
+table:nth-child(odd){
+    background-color: #555;
+    background-color: white;
+}
+table input{
+    border: none;
+    width: 100px;
+}
+table input[type='number']{
+    border: none;
+    background-color: lightgray;
+}
+
+th, td {
+    padding: 10px 0px;
+    text-align: center;
+    max-width: 10px;
+    overflow: auto;
+    border-bottom: 2px solid black;
+}
+tr td:nth-child(even) {
+    background-color: lightgray;
+  }
+
+  tr td:nth-child(odd) {
+    background-color: white;
+  }
+button {
+    padding: 5px 10px;
+}
