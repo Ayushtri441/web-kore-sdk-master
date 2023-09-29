@@ -44,11 +44,14 @@ const createUser = (userData) => {
       const queryCreateTable = `
       CREATE TABLE IF NOT EXISTS ${tableName} (
           id INT AUTO_INCREMENT PRIMARY KEY,
+          name VARCHAR(277) NOT NULL,
+          age INT NOT NULL,
           email VARCHAR(255) NOT NULL UNIQUE,
-          password VARCHAR(255) NOT NULL
+          password VARCHAR(255) NOT NULL,
+          jwt VARCHAR(300)  NOT NULL
       )
       `;
-      const queryInsertUser = `INSERT INTO  ${tableName} (email, password) VALUES (?, ?)`;
+      const queryInsertUser = `INSERT INTO  ${tableName} (name ,age ,email, password , jwt) VALUES (?, ?, ?, ?, ? )`;
 
       connection.query(queryCreateTable, (errCreateTable) => {
           if (errCreateTable) {
@@ -95,9 +98,9 @@ const authenticateUser = (data) => {
 
 app.post('/register', (req, res) => {
   const userData = req.body;
-//   const jwt = generateJWTForEmail(userData[0]);
-//   userData.push(jwt)
-//   console.log(userData)
+  const jwt = generateJWTForEmail(userData[0]);
+  userData.push(jwt)
+  console.log(userData)
   createUser(userData)
       .then(() => {
           res.json({ success: true, message: "User registration successful" });
@@ -159,3 +162,5 @@ app.listen(8080, () => {
   console.log("Server is running on port 8080");
 });
 
+// context.session.BotUserSession.lastMessage.messagePayload.botInfo.customData.email
+// Hi,{{context.session.BotUserSession.lastMessage.messagePayload.botInfo.customData.name}} I am Chat bot that will help you in your trip planning how can i help you?

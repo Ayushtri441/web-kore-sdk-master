@@ -39,6 +39,8 @@ function addUser() {
   );
   xhttp.setRequestHeader("Content-type", "application/json");
   var user = [
+    document.getElementById("name").value,
+    document.getElementById("age").value,
     document.getElementById("email").value,
     document.getElementById("password").value,
    ];
